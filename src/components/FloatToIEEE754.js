@@ -8,7 +8,7 @@ const FloatToIEEE754 = () => {
 
     const handleConvert = async () => {
         if (isNaN(floatValue)) {
-            setError("Por favor, ingresa un número flotante válido.");
+            setError("Por favor, ingresa un número flotante válido (utilice '.' para separar parte entera)");
             return;
         }
         setError(null);
@@ -19,7 +19,7 @@ const FloatToIEEE754 = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ value: parseFloat(floatValue) }),
+                body: JSON.stringify({ float: parseFloat(floatValue) }),
             });
             const data = await response.json();
             setResult(data);
