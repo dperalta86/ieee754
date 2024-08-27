@@ -62,7 +62,7 @@ p {
 
 .checkbox-container {
   display: flex;
-  align-items: self-end;
+  align-items: start;
   margin-top: 10px;
 }
 

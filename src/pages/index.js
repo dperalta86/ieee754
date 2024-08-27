@@ -4,7 +4,7 @@ import Tabs from '../components/Tabs';
 import Sidebar from '../components/Sidebar';
 
 // Importa el módulo CSS
-import styles from '../styles/home.module.css';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (

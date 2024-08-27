@@ -44,17 +44,20 @@ const IEEE754ToFloat = () => {
                 placeholder="Ingresa una cadena de bits"
             />
             <div className="checkbox-container">
-                <input
-                    type="checkbox"
-                    id="autocomplete"
-                    checked={autoComplete}
-                    onChange={() => setAutoComplete(!autoComplete)}
-                />
-                <label htmlFor="autocomplete">Autocompletar con ceros hasta 32 bits</label>
+
+                    <input
+                        type="checkbox"
+                        id="autocomplete"
+                        checked={autoComplete}
+                        onChange={() => setAutoComplete(!autoComplete)}
+                    />
+                    <label htmlFor="autocomplete">Autocompletar con ceros hasta 32 bits</label>
+
+
             </div>
             <button onClick={handleConvert}>Convertir</button>
 
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p style={{color: 'red'}}>{error}</p>}
 
             {result && (
                 <div>
