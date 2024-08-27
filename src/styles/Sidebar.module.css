@@ -1,0 +1,58 @@
+/* Diseño para las columnas*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.main-content {
+    flex: 2;
+    min-width: 300px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none; /* Ocultar las barras laterales en pantallas pequeñas */
+    }
+
+    .main-content {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+.sidebar-content {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    color: #0070f3;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}

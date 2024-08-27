@@ -1,0 +1,26 @@
+.bit-display {
+    display: flex;
+    margin-top: 10px;
+}
+
+.bit {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.sign-bit {
+    background-color: #ff6666;
+}
+
+.exponent-bit {
+    background-color: #66b3ff;
+}
+
+.mantissa-bit {
+    background-color: #99ff99;
+}
