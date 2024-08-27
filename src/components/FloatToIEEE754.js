@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from '../styles/bitdisplay.module.css';
+import styles from '../styles/BitDisplay.module.css';
 
 const FloatToIEEE754 = () => {
     const [floatValue, setFloatValue] = useState('');
