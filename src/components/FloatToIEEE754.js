@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/BitDisplay.module.css';
+import BitDisplay from "@/components/BitDisplay";
 
 const FloatToIEEE754 = () => {
     const [floatValue, setFloatValue] = useState('');
@@ -21,7 +22,6 @@ const FloatToIEEE754 = () => {
                 },
                 body: JSON.stringify({ float: parseFloat(floatValue) }),
             });
-            console.log(JSON.stringify({ float: parseFloat(floatValue) }));
             const data = await response.json();
             setResult(data);
         } catch (err) {
@@ -43,9 +43,11 @@ const FloatToIEEE754 = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {result && (
-                <div className={styles.resultContainer}>
-                    <p className={styles.resultText}>Resultado: {result}</p>
-                </div>
+                    <BitDisplay
+                        mantissa={result.mantissa}
+                        sign={result.sign}
+                        exponent={result.exponent}
+                    />
             )}
         </div>
     );
