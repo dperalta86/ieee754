@@ -21,6 +21,7 @@ const FloatToIEEE754 = () => {
                 },
                 body: JSON.stringify({ float: parseFloat(floatValue) }),
             });
+            console.log(JSON.stringify({ float: parseFloat(floatValue) }));
             const data = await response.json();
             setResult(data);
         } catch (err) {

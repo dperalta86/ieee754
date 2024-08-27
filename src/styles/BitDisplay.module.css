@@ -57,15 +57,41 @@
     font-weight: 600;
     color: #0070f3;
 }
-
-
-
-
-
 .result-container p {
     margin: 0;
     font-weight: 600;
     color: #0070f3;
+}
+
+
+/* Bit Display */
+.bitDisplayContainer {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bitSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.bitLabel {
+    font-weight: bold;
+    color: #333;
+}
+
+.bitValue {
+    font-family: 'Courier New', Courier, monospace;
+    color: #0070f3;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
 }
 
 .bit-display {
