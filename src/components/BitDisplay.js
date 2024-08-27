@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/bitdisplay.module.css';
+import styles from '../styles/BitDisplay.module.css';
 
 const BitDisplay = ({ mantissa, sign, exponent }) => {
     if (!mantissa || !sign || !exponent) {
