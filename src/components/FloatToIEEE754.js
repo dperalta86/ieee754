@@ -36,6 +36,7 @@ const FloatToIEEE754 = () => {
             }
 
              */
+            const data = await response.json();
 
             // Aquí se calculan y se agregan los datos adicionales
             const binary = `${data.sign}${data.exponent}${data.mantissa}`;
@@ -43,10 +44,12 @@ const FloatToIEEE754 = () => {
             const littleEndian = [hex.slice(6, 8), hex.slice(4, 6), hex.slice(2, 4), hex.slice(0, 2)].join(' ');
 
             setResult({
-                ...data,
-                binary,
-                hex,
-                littleEndian
+                mantissa: data.mantissa,
+                sign: data.sign,
+                exponent: data.exponent,
+                binary: binary,
+                hex: hex,
+                littleEndian: littleEndian
             });
 
 
