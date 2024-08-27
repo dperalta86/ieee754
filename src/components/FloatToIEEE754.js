@@ -22,8 +22,34 @@ const FloatToIEEE754 = () => {
                 },
                 body: JSON.stringify({ float: parseFloat(floatValue) }),
             });
+
+            /*
             const data = await response.json();
             setResult(data);
+
+
+            if (!response.ok) throw new Error('Error en la conversión. El servidor devolvió un error.');
+            const data = await response.json();
+
+            if (!data || !data.mantissa || !data.sign || !data.exponent) {
+                throw new Error('La respuesta del servidor no es válida.');
+            }
+
+             */
+
+            // Aquí se calculan y se agregan los datos adicionales
+            const binary = `${data.sign}${data.exponent}${data.mantissa}`;
+            const hex = parseInt(binary, 2).toString(16).toUpperCase().padStart(8, '0');
+            const littleEndian = [hex.slice(6, 8), hex.slice(4, 6), hex.slice(2, 4), hex.slice(0, 2)].join(' ');
+
+            setResult({
+                ...data,
+                binary,
+                hex,
+                littleEndian
+            });
+
+
         } catch (err) {
             setError('Hubo un error en la conversión. Por favor, inténtalo de nuevo.');
         }
@@ -43,11 +69,14 @@ const FloatToIEEE754 = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {result && (
-                    <BitDisplay
-                        mantissa={result.mantissa}
-                        sign={result.sign}
-                        exponent={result.exponent}
-                    />
+                <BitDisplay
+                    mantissa={result.mantissa}
+                    sign={result.sign}
+                    exponent={result.exponent}
+                    binary={result.binary}
+                    hex={result.hex}
+                    littleEndian={result.littleEndian}
+                />
             )}
         </div>
     );

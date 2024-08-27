@@ -55,7 +55,7 @@
     margin-top: 20px;
     color: #333;
     font-weight: 600;
-    color: #0070f3;
+
 }
 .result-container p {
     margin: 0;
@@ -87,6 +87,31 @@
 .bitValue {
     font-family: 'Courier New', Courier, monospace;
     color: #0070f3;
+}
+
+.secondaryDataContainer {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.secondaryDataSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.secondaryDataLabel {
+    color: #666;
+    font-size: 14px;
+}
+
+.secondaryDataValue {
+    color: #555;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
 }
 
 .error {

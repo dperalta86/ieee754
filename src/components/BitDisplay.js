@@ -20,6 +20,22 @@ const BitDisplay = ({ mantissa, sign, exponent }) => {
                 <span className={styles.bitLabel}>Mantisa:</span>
                 <span className={styles.bitValue}>{mantissa}</span>
             </div>
+
+            {/* Datos adicionales */}
+            <div className={styles.secondaryDataContainer}>
+                <div className={styles.secondaryDataSection}>
+                    <span className={styles.secondaryDataLabel}>Representación Binaria:</span>
+                    <span className={styles.secondaryDataValue}>{binary}</span>
+                </div>
+                <div className={styles.secondaryDataSection}>
+                    <span className={styles.secondaryDataLabel}>Hexadecimal:</span>
+                    <span className={styles.secondaryDataValue}>{hex}</span>
+                </div>
+                <div className={styles.secondaryDataSection}>
+                    <span className={styles.secondaryDataLabel}>Little Endian:</span>
+                    <span className={styles.secondaryDataValue}>{littleEndian}</span>
+                </div>
+            </div>
         </div>
     );
 };
