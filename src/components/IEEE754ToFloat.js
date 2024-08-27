@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from '../styles/bitdisplay.module.css';
 
 const IEEE754ToFloat = () => {
     const [bitString, setBitString] = useState('');
@@ -13,7 +14,6 @@ const IEEE754ToFloat = () => {
             input = input.padEnd(32, '0');  // Completa con '0' hasta llegar a 32 bits
         }
 
-        // Validar que la cadena de bits tenga exactamente 32 caracteres y solo contenga '0' o '1'
         if (input.length !== 32 || !/^[01]+$/.test(input)) {
             setError("La cadena debe contener exactamente 32 bits (solo '0' y '1').");
             return;
@@ -42,26 +42,25 @@ const IEEE754ToFloat = () => {
                 value={bitString}
                 onChange={(e) => setBitString(e.target.value)}
                 placeholder="Ingresa una cadena de bits"
+                className={styles.textInput}
             />
-            <div className="checkbox-container">
-
-                    <input
-                        type="checkbox"
-                        id="autocomplete"
-                        checked={autoComplete}
-                        onChange={() => setAutoComplete(!autoComplete)}
-                    />
-                    <label htmlFor="autocomplete">Autocompletar con ceros hasta 32 bits</label>
-
-
+            <div className={styles.checkboxContainer}>
+                <input
+                    type="checkbox"
+                    id="autocomplete"
+                    checked={autoComplete}
+                    onChange={() => setAutoComplete(!autoComplete)}
+                    className={styles.checkbox}
+                />
+                <label htmlFor="autocomplete">Autocompletar con ceros hasta 32 bits</label>
             </div>
-            <button onClick={handleConvert}>Convertir</button>
+            <button onClick={handleConvert} className={styles.button}>Convertir</button>
 
-            {error && <p style={{color: 'red'}}>{error}</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {result && (
-                <div>
-                    <p>Resultado: {result}</p>
+                <div className={styles.resultContainer}>
+                    <p className={styles.resultText}>Resultado: {result}</p>
                 </div>
             )}
         </div>
@@ -69,4 +68,3 @@ const IEEE754ToFloat = () => {
 };
 
 export default IEEE754ToFloat;
-

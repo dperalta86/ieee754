@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import FloatToIEEE754 from './FloatToIEEE754';
-import IEEE754ToFloat from './IEEE754ToFloat';
+
+import FloatToIEEE754 from "@/components/FloatToIEEE754";
+import IEEE754ToFloat from "@/components/IEEE754ToFloat";
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState('float-to-ieee754');

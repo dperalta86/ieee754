@@ -3,11 +3,11 @@ const Sidebar = ({ content }) => {
         <div className="sidebar-content">
             {content === 'left' ? (
                 <>
-                    <h3>Información Relevante</h3>
+                    <h3>@dperalta</h3>
                     <ul>
-                        <li>Qué es IEEE 754</li>
-                        <li>Cómo se representan los números</li>
-                        <li>Enlaces a recursos útiles</li>
+                        <li><a href="https://www.dperalta.com.ar" target="_blank" rel="noopener noreferrer">Página principal</a></li>
+                        <li><a href="https://conversor.dperalta.com.ar" target="_blank" rel="noopener noreferrer">Conversor de bases</a></li>
+
                     </ul>
                 </>
             ) : (

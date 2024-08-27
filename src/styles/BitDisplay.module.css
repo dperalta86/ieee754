@@ -1,3 +1,73 @@
+/* styles/bitdisplay.module.css */
+.textInput {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.textInput:focus {
+    border-color: #0070f3;
+    outline: none;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkbox {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+
+.resultContainer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resultText {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+    font-weight: 600;
+    color: #0070f3;
+}
+
+
+
+
+
+.result-container p {
+    margin: 0;
+    font-weight: 600;
+    color: #0070f3;
+}
+
 .bit-display {
     display: flex;
     margin-top: 10px;

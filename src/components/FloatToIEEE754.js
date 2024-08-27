@@ -1,19 +1,31 @@
 import { useState } from 'react';
+import styles from '../styles/bitdisplay.module.css';
 
 const FloatToIEEE754 = () => {
     const [floatValue, setFloatValue] = useState('');
     const [result, setResult] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleConvert = async () => {
-        const response = await fetch('https://digitales1.onrender.com/ieeep754simple/float', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ float: parseFloat(floatValue) }),
-        });
-        const data = await response.json();
-        setResult(data);
+        if (isNaN(floatValue)) {
+            setError("Por favor, ingresa un número flotante válido.");
+            return;
+        }
+        setError(null);
+
+        try {
+            const response = await fetch('https://digitales1.onrender.com/ieeep754simple/float', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ value: parseFloat(floatValue) }),
+            });
+            const data = await response.json();
+            setResult(data);
+        } catch (err) {
+            setError('Hubo un error en la conversión. Por favor, inténtalo de nuevo.');
+        }
     };
 
     return (
@@ -22,18 +34,16 @@ const FloatToIEEE754 = () => {
                 type="text"
                 value={floatValue}
                 onChange={(e) => setFloatValue(e.target.value)}
-                placeholder="Ingresa un número float"
+                placeholder="Ingresa un número flotante"
+                className={styles.textInput}
             />
-            <button onClick={handleConvert}>Convertir</button>
+            <button onClick={handleConvert} className={styles.button}>Convertir</button>
+
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {result && (
-                <div>
-                    <p>Signo: {result.sign}</p>
-                    <p>Exponente: {result.exponent}</p>
-                    <p>Mantisa: {result.mantissa}</p>
-                    <BitDisplay sign={result.sign} exponent={result.exponent} mantissa={result.mantissa} />
-                    <p>Hexadecimal: {result.hex}</p>
-                    <p>Little Endian: {result.littleEndian}</p>
+                <div className={styles.resultContainer}>
+                    <p className={styles.resultText}>Resultado: {result}</p>
                 </div>
             )}
         </div>
