@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/BitDisplay.module.css';
 
-const BitDisplay = ({ mantissa, sign, exponent }) => {
+const BitDisplay = ({ mantissa, sign, exponent, binary, hex, littleEndian }) => {
     if (!mantissa || !sign || !exponent) {
         return <p className={styles.error}>Datos incompletos para mostrar la representación IEEE754.</p>;
     }
