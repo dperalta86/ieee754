@@ -10,21 +10,23 @@ const BitDisplay = ({ mantissa, sign, exponent, binary, hex, littleEndian }) => 
         <div className={styles.bitDisplayContainer}>
             <div className={styles.bitSection}>
                 <span className={styles.bitLabel}>Signo:</span>
-                <span className={styles.bitValue}>{sign}</span>
+                <span className="bit sign-bit">{sign}</span>
             </div>
             <div className={styles.bitSection}>
                 <span className={styles.bitLabel}>Exponente:</span>
-                <span className={styles.bitValue}>{exponent}</span>
+                <span className="bit exponent-bit">{exponent}</span>
             </div>
             <div className={styles.bitSection}>
                 <span className={styles.bitLabel}>Mantisa:</span>
-                <span className={styles.bitValue}>{mantissa}</span>
+                <span className="bit mantissa-bit">{mantissa}</span>
             </div>
 
             {/* Datos adicionales */}
             <div className={styles.secondaryDataContainer}>
                 <div className={styles.secondaryDataSection}>
                     <span className={styles.secondaryDataLabel}>Representación Binaria:</span>
+                </div>
+                <div>
                     <span className={styles.secondaryDataValue}>{binary}</span>
                 </div>
                 <div className={styles.secondaryDataSection}>
