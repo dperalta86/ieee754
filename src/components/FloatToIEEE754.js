@@ -13,6 +13,7 @@ const FloatToIEEE754 = () => {
         let bodyValue;
         if (floatValue === "NaN" || floatValue === "Infinity" || floatValue === "-Infinity") {
             isFloat = false;
+            setError(null);
         }else{
             if (isNaN(floatValue)) {
                 setError("Por favor, ingresa un número flotante válido (utilice '.' para separar parte entera)");
