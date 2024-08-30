@@ -5,6 +5,7 @@ import Tabs from "@/components/Tabs";
 
 // Importa el módulo CSS
 import styles from '../styles/Home.module.css';
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
                   <Sidebar content="right"/>
               </aside>
           </div>
+          <Footer />
       </div>
   );
 }
