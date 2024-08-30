@@ -8,34 +8,33 @@ const FloatToIEEE754 = () => {
     const [error, setError] = useState(null);
 
     const handleConvert = async () => {
-        if (isNaN(floatValue)) {
-            setError("Por favor, ingresa un número flotante válido (utilice '.' para separar parte entera)");
-            return;
+        // verifico si es un caso particular manejado por el servidor, o error de escritura
+        let isFloat= true;
+        let bodyValue;
+        if (floatValue === "NaN" || floatValue === "Infinity" || floatValue === "-Infinity") {
+            isFloat = false;
+        }else{
+            if (isNaN(floatValue)) {
+                setError("Por favor, ingresa un número flotante válido (utilice '.' para separar parte entera)");
+                return;
+            }
+            setError(null);
         }
-        setError(null);
 
+        if (!isFloat)
+            bodyValue = JSON.stringify({float: floatValue});
+        else
+            bodyValue = JSON.stringify({float: parseFloat(floatValue)})
         try {
             const response = await fetch('https://digitales1.onrender.com/ieeep754simple/float', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ float: parseFloat(floatValue) }),
+
+                body: bodyValue,
             });
 
-            /*
-            const data = await response.json();
-            setResult(data);
-
-
-            if (!response.ok) throw new Error('Error en la conversión. El servidor devolvió un error.');
-            const data = await response.json();
-
-            if (!data || !data.mantissa || !data.sign || !data.exponent) {
-                throw new Error('La respuesta del servidor no es válida.');
-            }
-
-             */
             const data = await response.json();
 
             // Aquí se calculan y se agregan los datos adicionales
@@ -51,9 +50,8 @@ const FloatToIEEE754 = () => {
                 hex: hex,
                 littleEndian: littleEndian
             });
-
-
-        } catch (err) {
+        }
+        catch (err){
             setError('Hubo un error en la conversión. Por favor, inténtalo de nuevo.');
         }
     };
