@@ -135,13 +135,13 @@
 }
 
 .sign-bit {
-    background-color: #ff6666;
+    color: #ff6666;
 }
 
 .exponent-bit {
-    background-color: #66b3ff;
+    color: #66b3ff;
 }
 
 .mantissa-bit {
-    background-color: #99ff99;
+    color: #99ff99;
 }
